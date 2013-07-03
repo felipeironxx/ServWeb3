@@ -9,7 +9,7 @@
 
         Empresa que o funcionario trabalha: <select name="selEmprFunc">
             {foreach from=$list item=r}
-            <option value="{$r.codigo_empresa}">{$r.nome_empresa}</option>
+            <option value="{$r.id}">{$r.nome_empresa}</option>
             {/foreach}
         </select><br>
 

@@ -8,7 +8,7 @@
 
         Empresa que o funcionario trabalha: <select name="selEmprFunc">
             {foreach from=$list item=r}
-            <option value="{$r.codigo_empresa}" {if $r.codigo_empresa == $e.selEmprFunc} selected="selected" {/if}>{$r.nome_empresa}</option>
+            <option value="{$r.id}" {if $r.id == $e.selEmprFunc} selected="selected" {/if}>{$r.nome_empresa}</option>
             {/foreach}
         </select><br>
 

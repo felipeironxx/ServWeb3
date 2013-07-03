@@ -22,8 +22,8 @@
     {foreach from=$lista item=row}
     <tr>
         <td>{$row.id} </td>
-        <td>{$row.nome} </td>
-        <td>{$row.nome} </td>
+        <td>{$row.nome_func_empr} </td>
+        <td>{$row.nome_empresa} </td>
         <td><a href="#" onclick="win('editFuncEmpr.php?edit={$row.id}',280,420)">Edit</a> | 
             <a href="?del={$row.id}">Del</a>
         </td>

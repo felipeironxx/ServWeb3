@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-07-02 19:29:31
+<?php /* Smarty version Smarty-3.1.13, created on 2013-07-02 21:58:58
          compiled from "view/listFuncEmpr.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:162952926651d3544b13aba4-32855328%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b19f58b68642c06c0973393667f05113184b5d13' => 
     array (
       0 => 'view/listFuncEmpr.tpl',
-      1 => 1372795325,
+      1 => 1372813137,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_51d3544b1d2955_03317557',
   'variables' => 
   array (
     'lista' => 0,
     'row' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_51d3544b1d2955_03317557',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_51d3544b1d2955_03317557')) {function content_51d3544b1d2955_03317557($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("view/inicio.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
@@ -54,9 +54,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
     <tr>
         <td><?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
  </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome'];?>
+        <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_func_empr'];?>
  </td>
-        <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome'];?>
+        <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_empresa'];?>
  </td>
         <td><a href="#" onclick="win('editFuncEmpr.php?edit=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
 ',280,420)">Edit</a> | 

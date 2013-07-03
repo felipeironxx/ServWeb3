@@ -4,15 +4,15 @@ require_once ('model/mFuncEmpr.php');
 
 class aFuncEmpr extends mFuncEmpr {
 
-    protected $sqlInsert = "insert into func_empr (nome, id_empresa) values('%s', '%s')";
+    protected $sqlInsert = "insert into func_empr (nome_func_empr, id_empresa) values('%s', '%s')";
     
-    protected $sqlUpdate = "update func_empr set nome='%s', id_empresa='%s' where id = '%s'";
+    protected $sqlUpdate = "update func_empr set nome_func_empr='%s', id_empresa='%s' where id = '%s'";
     
     protected $sqlDelete = "delete from func_empr where id = '%s'";
     
     protected $sqlSelect = "select * from func_empr where 1=1 %s %s ";
     
-    protected $sqlSelectInner = "select func_empr.*, empresa.nome from func_empr 
+    protected $sqlSelectInner = "select func_empr.*, empresa.nome_empresa from func_empr 
                                  inner join empresa on (empresa.id = func_empr.id_empresa) 
                                  where 1=1 %s %s";
 
@@ -72,7 +72,7 @@ class aFuncEmpr extends mFuncEmpr {
         try {
             $rs = $this->select(sprintf("and id='%s'", $this->getId()));
             $this->setId($rs[0]['id']);
-            $this->setNome($rs[0]['nome']);
+            $this->setNome($rs[0]['nome_func_empr']);
             $this->setId_empresa($rs[0]['id_empresa']);
 
             return $this;
