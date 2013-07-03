@@ -7,7 +7,6 @@ require_once 'core/FuncEmpr.php';
 $ce = new Empresa();
 $cfe = new FuncEmpr();
 
-
 $sm->assign('list', $ce->select());
 
 
