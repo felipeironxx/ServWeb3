@@ -3,14 +3,13 @@ require_once ('model/mFuncionario.php');
 
 class aFuncionario extends mFuncionario {
 
-    protected $sqlInsert = "insert into funcionario (nome, celular, email) values('%s','%s', '%s')";
-    protected $sqlUpdate = "update funcionario set nome='%s', celular='%s', email='%s' where id = '%s'";
+    protected $sqlInsert = "insert into funcionario (nome_funcionario, celular, email) values('%s','%s', '%s')";
+    protected $sqlUpdate = "update funcionario set nome_funcionario='%s', celular='%s', email='%s' where id = '%s'";
     protected $sqlDelete = "delete from funcionario where id = '%s' ";
     protected $sqlSelect = "select * from funcionario where 1=1 %s %s ";
 
     public function insert() {
         try {
-
             $sql = sprintf($this->sqlInsert, $this->getNome(), 
                                              $this->getCelular(),
                                              $this->getEmail());
@@ -57,7 +56,7 @@ class aFuncionario extends mFuncionario {
         try {
             $rs = $this->select(sprintf("and id='%s'", $this->getId()));
             $this->setId($rs[0]['id']);
-            $this->setNome($rs[0]['nome']);
+            $this->setNome($rs[0]['nome_funcionario']);
             $this->setCelular($rs[0]['celular']);
             $this->setEmail($rs[0]['email']);
 

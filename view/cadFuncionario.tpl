@@ -6,10 +6,11 @@
     <form name="cadFuncionario" id="cadFuncionario" method="post" onsubmit="return validarEnvio(this);">
 
         Nome do Funcionario: <input type="text" name="nFuncionario" id="nFuncionario" size="40"><br>
-        Celular: <input type="text" name="nCelular_func" id="nCelular_func" size="40" onkeypress="formataTel(document.cadFuncionario.nCelular_func);"><br>
+        Celular: <input type="text" name="celular_func" id="nCelular_func" size="15" onkeypress="formataTel(document.cadFuncionario.celular_func);"><br>
+        E-mail: <input type="text" name="emailF" id="emailF" size="40"><br>
 
         <input type="submit" value="Cadastrar"/>
-        <!--<input type="button" onclick="window.location.href='listFuncionario.php'" value="Cancelar"><br>-->
+        
     </form>
 </div>
 

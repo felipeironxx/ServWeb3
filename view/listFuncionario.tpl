@@ -17,13 +17,15 @@
             <td>Codigo do Funcionario</td>  
             <td>Nome do Funcionario</td>
             <td>Celular</td>
+            <td>E-mail</td>
             <td>Ações</td>        
         </tr>
         {foreach from=$lista item=row}
         <tr>
             <td>{$row.id}</td> 
-            <td>{$row.nome}</td>
+            <td>{$row.nome_funcionario}</td>
             <td>{$row.celular}</td>
+            <td>{$row.email}</td>
             <td><a href="#" onclick="win('editFuncionario.php?edit={$row.id}',290,420)">Edit</a> | 
                 <a href="?del={$row.id}">Del</a>
             </td>
