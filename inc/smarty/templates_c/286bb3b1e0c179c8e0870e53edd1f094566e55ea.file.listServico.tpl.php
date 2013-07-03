@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-07-02 17:28:50
+<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 11:26:09
          compiled from "view/listServico.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28418919151d3373659cb72-26200365%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '286bb3b1e0c179c8e0870e53edd1f094566e55ea' => 
     array (
       0 => 'view/listServico.tpl',
-      1 => 1372796928,
+      1 => 1372861566,
       2 => 'file',
     ),
   ),
@@ -58,7 +58,9 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
         <td><?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
  </td> 
         <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_funcionario'];?>
- </td> 
+ </td>
+        <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_cliente'];?>
+ </td>
         <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_empresa'];?>
  </td> 
         <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_func_empr'];?>

@@ -40,3 +40,12 @@ function formataTel(campo){
 //}
 
 
+function deal(obj){
+    if(obj == "pf"){
+        document.getElementById('fis').style.display ='block';
+        document.getElementById('jur').style.display ='none';
+    }else if(obj == "pj"){
+        document.getElementById('jur').style.display ='block';
+        document.getElementById('fis').style.display ='none';
+    }
+}

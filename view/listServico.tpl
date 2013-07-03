@@ -25,7 +25,8 @@
     {foreach from=$lista item=row}
     <tr>
         <td>{$row.id} </td> 
-        <td>{$row.nome_funcionario} </td> 
+        <td>{$row.nome_funcionario} </td>
+        <td>{$row.nome_cliente} </td>
         <td>{$row.nome_empresa} </td> 
         <td>{$row.nome_func_empr} </td> 
         <td>{$row.serv_solicitado} </td> 
