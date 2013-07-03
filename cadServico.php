@@ -22,10 +22,10 @@ $sm->assign('funcemprlist', $cfe->select());
 if($_POST['p'] == "pf"){
 
     //se o valor do radio for pf(Pessoa Fisica) ele faz o cadastro do serviço do cliente
-    if (isset($_POST['selCodFunc']) and isset($_POST['selCodCliente']) and isset($_POST['servASerFeito']) 
+    if (isset($_POST['selCodFuncAnot']) and isset($_POST['selCodCliente']) and isset($_POST['servASerFeito']) 
             and isset($_POST['dataSolicitacao']) and !isset($_GET['edit'])) {
 
-        $cs->setId_func_anotou($_POST['selCodFunc']);
+        $cs->setId_func_anotou($_POST['selCodFuncAnot']);
         $cs->setId_cliente($_POST['selCodCliente']);
         $cs->setServ_solicitado($_POST['servASerFeito']);
         $cs->setDt_solicitacao($_POST['dataSolicitacao']);
@@ -37,10 +37,10 @@ if($_POST['p'] == "pf"){
 
 else {
 // se não faz o cadastro do serviço da empresa
-    if (isset($_POST['selCodFunc']) and isset($_POST['selCodEmpr']) and isset($_POST['selCodFuncEmpr'])
+    if (isset($_POST['selCodFuncAnot']) and isset($_POST['selCodEmpr']) and isset($_POST['selCodFuncEmpr'])
             and isset($_POST['servASerFeito']) and isset($_POST['dataSolicitacao']) and !isset($_GET['edit'])) {
 
-        $cs->setId_func_anotou($_POST['selCodFunc']);
+        $cs->setId_func_anotou($_POST['selCodFuncAnot']);
         $cs->setId_empresa($_POST['selCodEmpr']);
         $cs->setId_func_empr($_POST['selCodFuncEmpr']);
         $cs->setServ_solicitado($_POST['servASerFeito']);

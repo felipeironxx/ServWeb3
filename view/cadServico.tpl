@@ -8,7 +8,7 @@
         Pessoa Fisica<input type="radio" value="pf" name="p" checked="true" onclick="deal(this.value);">
         Pessoa Juridica<input type="radio" value="pj" name="p" onclick="deal(this.value);"><hr/>
 
-        Funcionario que anotou o serviço: <select name="selCodFunc">
+        Funcionario que anotou o serviço: <select name="selCodFuncAnot">
             <option value="0">Escolha uma opção</option>
             {foreach from=$funclist item=r}
                 <option value="{$r.id}">{$r.nome_funcionario}</option>

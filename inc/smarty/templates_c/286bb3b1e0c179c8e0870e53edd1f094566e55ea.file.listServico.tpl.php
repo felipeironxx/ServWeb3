@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 12:50:53
+<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 14:28:44
          compiled from "view/listServico.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:85829062951d44522a92711-00937319%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:196182528451d45c515bf300-72185473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '286bb3b1e0c179c8e0870e53edd1f094566e55ea' => 
     array (
       0 => 'view/listServico.tpl',
-      1 => 1372866511,
+      1 => 1372872523,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '85829062951d44522a92711-00937319',
+  'nocache_hash' => '196182528451d45c515bf300-72185473',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_51d44522b07d88_57126311',
+  'unifunc' => 'content_51d45c5165b5c4_24763978',
   'variables' => 
   array (
     'list' => 0,
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51d44522b07d88_57126311')) {function content_51d44522b07d88_57126311($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("view/inicio.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_51d45c5165b5c4_24763978')) {function content_51d45c5165b5c4_24763978($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("view/inicio.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
 <h1>Serviços</h1>
@@ -79,9 +79,10 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
  </td>
                     <td align="center"><input type="checkbox" value=""/></td>
                     <td><a href="#" onclick="win('editServico.php?edit=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
-',300,450)">Edit</a> | 
+',450,590)">Detalhes</a> | 
                         <a href="?del=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
-">Del</a>
+">del</a> 
+                        <input type="button" value="Iniciar Serviço" onclick="win();"/> 
                     </td>
                 </tr>
             <?php } ?>
@@ -107,9 +108,10 @@ $_smarty_tpl->tpl_vars['row']->_loop = true;
  </td>
                     <td align="center"><input type="checkbox" value=""/></td>
                     <td><a href="#" onclick="win('editServico.php?edit=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
-',300,450)">Edit</a> | 
+',450,590)">Detalhes</a> | 
                         <a href="?del=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
-">Del</a>
+">del</a> |
+                        <input type="button" value="Iniciar Serviço" onclick="win();"/> 
                     </td>
                 </tr>
             <?php } ?>

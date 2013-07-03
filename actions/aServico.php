@@ -72,7 +72,6 @@ class aServico extends mServico {
     public function update() {
         try {
             $sql = sprintf($this->sqlUpdate, $this->getId_func_anotou(),
-                                             $this->getCliente(),
                                              $this->getId_empresa(), 
                                              $this->getId_func_empr(), 
                                              $this->getServ_solicitado(),

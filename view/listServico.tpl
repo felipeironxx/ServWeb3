@@ -33,8 +33,9 @@
                     <td>{$row.dt_solicitacao} </td>
                     <td>{$row.dt_realizacao} </td>
                     <td align="center"><input type="checkbox" value=""/></td>
-                    <td><a href="#" onclick="win('editServico.php?edit={$row.id}',300,450)">Edit</a> | 
-                        <a href="?del={$row.id}">Del</a>
+                    <td><a href="#" onclick="win('editServico.php?edit={$row.id}',450,590)">Detalhes</a> | 
+                        <a href="?del={$row.id}">del</a> 
+                        <input type="button" value="Iniciar Serviço" onclick="win();"/> 
                     </td>
                 </tr>
             {/foreach}
@@ -49,8 +50,9 @@
                     <td>{$row.dt_solicitacao} </td>
                     <td>{$row.dt_realizacao} </td>
                     <td align="center"><input type="checkbox" value=""/></td>
-                    <td><a href="#" onclick="win('editServico.php?edit={$row.id}',300,450)">Edit</a> | 
-                        <a href="?del={$row.id}">Del</a>
+                    <td><a href="#" onclick="win('editServico.php?edit={$row.id}',450,590)">Detalhes</a> | 
+                        <a href="?del={$row.id}">del</a> |
+                        <input type="button" value="Iniciar Serviço" onclick="win();"/> 
                     </td>
                 </tr>
             {/foreach}
