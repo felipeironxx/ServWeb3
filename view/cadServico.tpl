@@ -3,9 +3,9 @@
 <div id="formalirio1">
     <h3>Cadastro do Serviço</h3>
 
-    <form name="cadServico" id="cadServico" method="post" onsubmit="return validarEnvio(this);">
+    <form name="cadServico" id="cadServico" method="post" onload="document.getElementById('fis').style.display ='block';" onsubmit="return validarEnvio(this);">
 
-        Pessoa Fisica<input type="radio" value="pf" name="p" onclick="deal(this.value);">
+        Pessoa Fisica<input type="radio" value="pf" name="p" checked="true" onclick="deal(this.value);">
         Pessoa Juridica<input type="radio" value="pj" name="p" onclick="deal(this.value);"><hr/>
 
         Funcionario que anotou o serviço: <select name="selCodFunc">

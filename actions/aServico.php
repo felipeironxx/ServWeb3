@@ -5,15 +5,18 @@ require_once ('model/mServico.php');
 class aServico extends mServico {
 
     protected $sqlInsertEmpresa = "insert into servico (id_func_anotou, id_empresa,
-                                        id_func_empr, serv_solicitado, dt_solicitacao) 
-                                        values('%s', '%s', '%s', '%s', '%s')";
+                                                        id_func_empr, serv_solicitado, dt_solicitacao) 
+                                   values('%s', '%s', '%s', '%s', '%s')";
     
-    protected $sqlInsertCliente = "insert into servico (id_func_anotou, id_cliente, serv_solicitado, dt_solicitacao) 
-                            values('%s', '%s', '%s', '%s')";
+    protected $sqlInsertCliente = "insert into servico (id_func_anotou, id_cliente, serv_solicitado, 
+                                                        dt_solicitacao) 
+                                   values('%s', '%s', '%s', '%s')";
     
     protected $sqlUpdate = "update servico set id_func_anotou='%s', id_empresa='%s', 
-                            id_func_empr='%s', serv_solicitado='%s', id_func_realizou='%s', serv_realizado='%s', 
-                            dt_solicitacao='%s', dt_realizacao='%s', hr_comeco='%s', hr_termino='%s', concluido='%s' 
+                                               id_func_empr='%s', serv_solicitado='%s', 
+                                               id_func_realizou='%s', serv_realizado='%s', 
+                                               dt_solicitacao='%s', dt_realizacao='%s', hr_comeco='%s',
+                                               hr_termino='%s', concluido='%s' 
                             where id = '%s'";
     
     protected $sqlDelete = "delete from servico where id = '%s'";
@@ -22,15 +25,22 @@ class aServico extends mServico {
                                       date_format(dt_realizacao, '%s') as dt_realizacao
                                       from servico where 1=1 %s %s";
     
-    protected $sqlSelectInner = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
+    protected $sqlSelectInnerE = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
                                         date_format(dt_realizacao, '%s') as dt_realizacao, 
-                                        funcionario.nome_funcionario, cliente.nome_cliente, empresa.nome_empresa, 
+                                        funcionario.nome_funcionario, empresa.nome_empresa, 
                                         func_empr.nome_func_empr from servico 
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
-                                        inner join cliente on (cliente.id = servico.id_cliente)
                                         inner join empresa on (empresa.id = servico.id_empresa) 
                                         inner join func_empr on (func_empr.id = servico.id_func_empr) 
-                            where 1=1 %s %s";
+                                 where 1=1 %s %s";
+    
+   protected $sqlSelectInnerC = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
+                                        date_format(dt_realizacao, '%s') as dt_realizacao, 
+                                        funcionario.nome_funcionario, cliente.nome_cliente 
+                                        from servico 
+                                        inner join funcionario on (funcionario.id = servico.id_func_anotou)
+                                        inner join cliente on (cliente.id = servico.id_cliente) 
+                                 where 1=1 %s %s";
 
     public function insertEmpresa() {
         try {
@@ -101,9 +111,21 @@ class aServico extends mServico {
         }
     }
 
-    public function selectInner($where = '', $order = '', $rquery = false) {
+    public function selectInnerE($where = '', $order = '', $rquery = false) {
         try {
-            $sql = sprintf($this->sqlSelectInner, '%d/%m/%Y', '%d/%m/%Y', $where, $order);
+            $sql = sprintf($this->sqlSelectInnerE, '%d/%m/%Y', '%d/%m/%Y', $where, $order);
+            if ($rquery)
+                return $sql;
+            else
+                return $this->RunSelect($sql);
+        } catch (Exception $e) {
+            echo "Caught exception:", $e->getMessage(), "\n";
+        }
+    }
+    
+        public function selectInnerC($where = '', $order = '', $rquery = false) {
+        try {
+            $sql = sprintf($this->sqlSelectInnerC, '%d/%m/%Y', '%d/%m/%Y', $where, $order);
             if ($rquery)
                 return $sql;
             else
