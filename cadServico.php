@@ -1,4 +1,5 @@
 <?php
+
 require_once 'sm.php';
 require_once 'pagina_restrita.php';
 require_once 'core/Empresa.php';
@@ -15,23 +16,37 @@ $sm->assign('emplist', $ce->select());
 $sm->assign('funclist', $cf->select());
 $sm->assign('funcemprlist', $cfe->select());
 
+if($_POST['p'] == "pf"){
 
+    //se o valor do radio for pf(Pessoa Fisica) ele faz o cadastro do serviço do cliente
+    if (isset($_POST['selCodFunc']) and isset($_POST['selCodCliente']) and isset($_POST['servASerFeito']) 
+            and isset($_POST['dataSolicitacao']) and !isset($_GET['edit'])) {
 
-// faz o cadastro
-if(isset($_POST['selCodFunc']) and isset($_POST['selCodCliente']) and isset($_POST['selCodEmpr']) and isset($_POST['selCodFuncEmpr']) 
-        and isset($_POST['servASerFeito']) and isset($_POST['dataSolicitacao']) and !isset($_GET['edit'])){
-        
         $cs->setId_func_anotou($_POST['selCodFunc']);
         $cs->setId_cliente($_POST['selCodCliente']);
+        $cs->setServ_solicitado($_POST['servASerFeito']);
+        $cs->setDt_solicitacao($_POST['dataSolicitacao']);
+        $cs->insertCliente();
+
+        $sm->assign("done", true);
+    }
+}
+
+else {
+// se não faz o cadastro do serviço da empresa
+    if (isset($_POST['selCodFunc']) and isset($_POST['selCodEmpr']) and isset($_POST['selCodFuncEmpr'])
+            and isset($_POST['servASerFeito']) and isset($_POST['dataSolicitacao']) and !isset($_GET['edit'])) {
+
+        $cs->setId_func_anotou($_POST['selCodFunc']);
         $cs->setId_empresa($_POST['selCodEmpr']);
         $cs->setId_func_empr($_POST['selCodFuncEmpr']);
         $cs->setServ_solicitado($_POST['servASerFeito']);
         $cs->setDt_solicitacao($_POST['dataSolicitacao']);
-        $cs->insert();
-        
-        $sm->assign("done", true);
-}
+        $cs->insertEmpresa();
 
+        $sm->assign("done", true);
+    }
+}
 
 $sm->display("cadServico.tpl")
 ?>
