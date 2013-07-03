@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 09:15:30
+<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 11:19:50
          compiled from "view/cadServico.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:30702167751d33a96474240-55967979%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2981f5097134a0e49623073595fa26c92be04456' => 
     array (
       0 => 'view/cadServico.tpl',
-      1 => 1372853609,
+      1 => 1372861187,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'funclist' => 0,
     'r' => 0,
+    'clielist' => 0,
     'emplist' => 0,
     'funcemprlist' => 0,
   ),
@@ -33,10 +34,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <h3>Cadastro do Serviço</h3>
 
     <form name="cadServico" id="cadServico" method="post" onsubmit="return validarEnvio(this);">
-        
-        Pessoa Fisica<input type="radio" value="pf" name="p">
-        Pessoa Juridica<input type="radio" value="pj" name="p"><hr/>
-        
+
+        Pessoa Fisica<input type="radio" value="pf" name="p" onclick="deal(this.value);">
+        Pessoa Juridica<input type="radio" value="pj" name="p" onclick="deal(this.value);"><hr/>
+
         Funcionario que anotou o serviço: <select name="selCodFunc">
             <option value="0">Escolha uma opção</option>
             <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
@@ -44,38 +45,56 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['r']->key => $_smarty_tpl->tpl_vars['r']->value){
 $_smarty_tpl->tpl_vars['r']->_loop = true;
 ?>
-            <option value="<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['r']->value['nome_funcionario'];?>
 </option>
             <?php } ?>
         </select><br>
 
-        Empresa que solicitou o serviço: <select name="selCodEmpr">
-            <option value="0">Escolha uma opção</option>
-            <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
+        <div id="fis" style="display: none;">
+
+            Cliente que solicitou o serviço: <select name="selCodCliente">
+                <option value="0">Escolha uma opção</option>
+                <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['clielist']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['r']->key => $_smarty_tpl->tpl_vars['r']->value){
+$_smarty_tpl->tpl_vars['r']->_loop = true;
+?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['r']->value['nome_cliente'];?>
+</option>
+                <?php } ?>
+            </select><br>
+        </div>
+
+        <div id="jur" style="display: none;">   
+            Empresa que solicitou o serviço: <select name="selCodEmpr">
+                <option value="0">Escolha uma opção</option>
+                <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['emplist']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['r']->key => $_smarty_tpl->tpl_vars['r']->value){
 $_smarty_tpl->tpl_vars['r']->_loop = true;
 ?>
-            <option value="<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['r']->value['nome_empresa'];?>
 </option>
-            <?php } ?>
-        </select><br>
+                <?php } ?>
+            </select><br>
 
-        Funcionario solicitante: <select name="selCodFuncEmpr">
-            <option value="0">Escolha uma opção</option>
-            <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
+            Funcionario solicitante: <select name="selCodFuncEmpr">
+                <option value="0">Escolha uma opção</option>
+                <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['funcemprlist']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['r']->key => $_smarty_tpl->tpl_vars['r']->value){
 $_smarty_tpl->tpl_vars['r']->_loop = true;
 ?>
-            <option value="<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['r']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['r']->value['nome_func_empr'];?>
 </option>
-            <?php } ?>
-        </select><br>
-        
+                <?php } ?>
+            </select><br>
+        </div>
+
         Serviço a ser feito: <br><textarea name="servASerFeito" id="servASerFeito" rows="5" cols="70" ></textarea><br>
 
         Data da solicitação do serviço: <input type="text" name="dataSolicitacao" id="dataSolicitacao"><br>

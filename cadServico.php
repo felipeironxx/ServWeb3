@@ -2,16 +2,19 @@
 
 require_once 'sm.php';
 require_once 'pagina_restrita.php';
+require_once 'core/Cliente.php';
 require_once 'core/Empresa.php';
 require_once 'core/Funcionario.php';
 require_once 'core/FuncEmpr.php';
 require_once 'core/Servico.php';
 
+$c = new Cliente();
 $ce = new Empresa();
 $cs = new Servico();
 $cf = new Funcionario();
 $cfe = new FuncEmpr();
 
+$sm->assign('clielist', $c->select());
 $sm->assign('emplist', $ce->select());
 $sm->assign('funclist', $cf->select());
 $sm->assign('funcemprlist', $cfe->select());
