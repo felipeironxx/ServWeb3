@@ -131,7 +131,7 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1;
 
-insert into `usuario` (`nome`,`login`,`senha`) values (`Administrador`,`admin`,`123`);
+insert into `usuario` (`nome`,`login`,`senha`) values ("Administrador","admin", 123);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -22,32 +22,21 @@
         <td>Ações</td>        
     </tr>
     
-    {foreach from=$listaE item=row}
+    {foreach from=$lista item=row}
         <tr>
             <td>{$row.id} </td> 
             <td>{$row.nome_funcionario} </td>
+            {if $row.nome_cliente ==''}
             <td>{$row.nome_empresa} | {$row.nome_func_empr}</td>
+            {else}
+            <td>{$row.nome_cliente} </td>
+            {/if}
             <td>{$row.serv_solicitado} </td> 
             <td>{$row.dt_solicitacao} </td>
             <td>{$row.dt_realizacao} </td>
             <td align="center"><input type="checkbox" value=""/></td>
             <td><a href="#" onclick="win('editServico.php?edit={$row.id}',450,590)">Detalhes</a> | 
                 <a href="?del={$row.id}">del</a> 
-                <input type="button" value="Iniciar Serviço" onclick="win();"/> 
-            </td>
-        </tr>
-    {/foreach}
-    {foreach from=$listaC item=row}
-        <tr>
-            <td>{$row.id} </td> 
-            <td>{$row.nome_funcionario} </td>
-            <td>{$row.nome_cliente} </td>
-            <td>{$row.serv_solicitado} </td> 
-            <td>{$row.dt_solicitacao} </td>
-            <td>{$row.dt_realizacao} </td>
-            <td align="center"><input type="checkbox" value=""/></td>
-            <td><a href="#" onclick="win('editServico.php?edit={$row.id}',450,590)">Detalhes</a> | 
-                <a href="?del={$row.id}">del</a> |
                 <input type="button" value="Iniciar Serviço" onclick="win();"/> 
             </td>
         </tr>

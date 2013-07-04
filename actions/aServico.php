@@ -25,22 +25,30 @@ class aServico extends mServico {
                                       date_format(dt_realizacao, '%s') as dt_realizacao
                                       from servico where 1=1 %s %s";
     
-    protected $sqlSelectInnerE = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
+    protected $sqlSelectInner = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
                                         date_format(dt_realizacao, '%s') as dt_realizacao, 
                                         funcionario.nome_funcionario, empresa.nome_empresa, 
-                                        func_empr.nome_func_empr from servico 
+                                        func_empr.nome_func_empr, servico.null as nome_cliente from servico 
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
                                         inner join empresa on (empresa.id = servico.id_empresa) 
                                         inner join func_empr on (func_empr.id = servico.id_func_empr) 
-                                 where 1=1 %s %s";
-    
-   protected $sqlSelectInnerC = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
+                                 where 1=1 
+                                 union all 
+                                 select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
                                         date_format(dt_realizacao, '%s') as dt_realizacao, 
-                                        funcionario.nome_funcionario, cliente.nome_cliente 
+                                        funcionario.nome_funcionario, servico.null, servico.null, cliente.nome_cliente 
                                         from servico 
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
                                         inner join cliente on (cliente.id = servico.id_cliente) 
-                                 where 1=1 %s %s";
+                                 where 1=1 order by id";
+    
+//   protected $sqlSelectInnerC = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
+//                                        date_format(dt_realizacao, '%s') as dt_realizacao, 
+//                                        funcionario.nome_funcionario, servico.null, servico.null, cliente.nome_cliente 
+//                                        from servico 
+//                                        inner join funcionario on (funcionario.id = servico.id_func_anotou)
+//                                        inner join cliente on (cliente.id = servico.id_cliente) 
+//                                 where 1=1 %s %s";
 
     public function insertEmpresa() {
         try {
@@ -110,21 +118,9 @@ class aServico extends mServico {
         }
     }
 
-    public function selectInnerE($where = '', $order = '', $rquery = false) {
+    public function selectInner($where = '', $order = '', $rquery = false) {
         try {
-            $sql = sprintf($this->sqlSelectInnerE, '%d/%m/%Y', '%d/%m/%Y', $where, $order);
-            if ($rquery)
-                return $sql;
-            else
-                return $this->RunSelect($sql);
-        } catch (Exception $e) {
-            echo "Caught exception:", $e->getMessage(), "\n";
-        }
-    }
-    
-        public function selectInnerC($where = '', $order = '', $rquery = false) {
-        try {
-            $sql = sprintf($this->sqlSelectInnerC, '%d/%m/%Y', '%d/%m/%Y', $where, $order);
+            $sql = sprintf($this->sqlSelectInner, '%d/%m/%Y', '%d/%m/%Y', '%d/%m/%Y', '%d/%m/%Y');
             if ($rquery)
                 return $sql;
             else

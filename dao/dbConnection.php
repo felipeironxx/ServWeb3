@@ -5,7 +5,7 @@ require_once 'config/cfServicoWeb.php';
 class dbConnection extends cfServicoWeb {
 
     private $user = "root";
-    private $pass = "root";
+    private $pass = "";
     private $host = "127.0.0.1";
     private $database = "dbservweb";
 
