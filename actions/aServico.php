@@ -41,14 +41,6 @@ class aServico extends mServico {
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
                                         inner join cliente on (cliente.id = servico.id_cliente) 
                                  where 1=1 order by id";
-    
-//   protected $sqlSelectInnerC = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
-//                                        date_format(dt_realizacao, '%s') as dt_realizacao, 
-//                                        funcionario.nome_funcionario, servico.null, servico.null, cliente.nome_cliente 
-//                                        from servico 
-//                                        inner join funcionario on (funcionario.id = servico.id_func_anotou)
-//                                        inner join cliente on (cliente.id = servico.id_cliente) 
-//                                 where 1=1 %s %s";
 
     public function insertEmpresa() {
         try {
