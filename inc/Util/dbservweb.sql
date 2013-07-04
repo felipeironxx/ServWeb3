@@ -10,7 +10,7 @@ USE `dbservweb` ;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `dbservweb`.`cliente` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(30) NOT NULL ,
+  `nome_cliente` VARCHAR(30) NOT NULL ,
   `cpf` VARCHAR(15) NULL ,
   `rg` VARCHAR(20) NULL ,
   `rua` VARCHAR(45) NULL ,
@@ -29,7 +29,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `dbservweb`.`empresa` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(30) NOT NULL ,
+  `nome_empresa` VARCHAR(30) NOT NULL ,
   `cnpj` VARCHAR(45) NULL ,
   `ie` VARCHAR(45) NULL ,
   `aplicativo` VARCHAR(45) NULL ,
@@ -52,7 +52,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `dbservweb`.`func_empr` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(30) NOT NULL ,
+  `nome_func_empr` VARCHAR(30) NOT NULL ,
   `id_empresa` INT(11) NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `id_empresa` (`id_empresa` ASC) ,
@@ -68,7 +68,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `dbservweb`.`funcionario` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(30) NOT NULL ,
+  `nome_funcionario` VARCHAR(30) NOT NULL ,
   `celular` VARCHAR(45) NOT NULL ,
   `email` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) )
@@ -82,17 +82,18 @@ DEFAULT CHARACTER SET = latin1;
 CREATE  TABLE IF NOT EXISTS `dbservweb`.`servico` (
   `id` INT(100) NOT NULL AUTO_INCREMENT,
   `id_func_anotou` INT(100) NOT NULL ,
-  `id_cliente` INT(100) NOT NULL ,
-  `id_empresa` INT(100) NOT NULL ,
-  `id_func_empr` INT(100) NOT NULL ,
+  `id_cliente` INT(100) NULL ,
+  `id_empresa` INT(100) NULL ,
+  `id_func_empr` INT(100) NULL ,
   `serv_solicitado` VARCHAR(400) NULL ,
-  `id_func_realizou` INT(100) NOT NULL ,
+  `id_func_realizou` INT(100) NULL ,
   `serv_realizado` VARCHAR(45) NULL ,
   `dt_solicitacao` DATE NULL ,
   `dt_realizacao` DATE NULL ,
   `hr_comeco` TIME NULL ,
   `hr_termino` TIME NULL ,
-  `concluido` INT(1) NULL DEFAULT 0 ,
+  `concluido` CHAR(1) NULL DEFAULT 'N' ,
+  `null` VARCHAR(40) NULL,
   PRIMARY KEY (`id`),
   INDEX `id_func_anotou` (`id_func_anotou` ASC) ,
   INDEX `id_empresa` (`id_empresa` ASC) ,
