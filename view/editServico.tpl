@@ -22,9 +22,8 @@
                 <option value="{$r.id}" {if $r.id == $e.selCodFuncEmpr} selected="selected" {/if}>{$r.nome_func_empr}</option>
             {/foreach}
         </select><br>
-    {/if}
 
-    {if $e.selCodEmpr ==''}
+    {else}
         Cliente solicitante: <select name="selCodCliente" disabled="disabled">
             {foreach from=$clientelist item=r}
                 <option value="{$r.id}" {if $r.id == $e.selCodCliente} selected="selected" {/if}>{$r.nome_cliente}</option>

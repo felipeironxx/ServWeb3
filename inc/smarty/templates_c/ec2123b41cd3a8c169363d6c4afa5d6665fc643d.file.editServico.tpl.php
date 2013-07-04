@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 15:58:01
+<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 21:27:50
          compiled from "view/editServico.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:127005590051d45d05bf53b7-81648454%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:29084402951d4be9d176aa1-09376716%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ec2123b41cd3a8c169363d6c4afa5d6665fc643d' => 
     array (
       0 => 'view/editServico.tpl',
-      1 => 1372877875,
+      1 => 1372897629,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '127005590051d45d05bf53b7-81648454',
+  'nocache_hash' => '29084402951d4be9d176aa1-09376716',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_51d45d05c8fb32_53051267',
+  'unifunc' => 'content_51d4be9d236e40_19318468',
   'variables' => 
   array (
     'funclist' => 0,
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51d45d05c8fb32_53051267')) {function content_51d45d05c8fb32_53051267($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("view/inicio_edit.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_51d4be9d236e40_19318468')) {function content_51d4be9d236e40_19318468($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("view/inicio_edit.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
 <h3>Edição do Serviço</h3>
@@ -71,9 +71,8 @@ $_smarty_tpl->tpl_vars['r']->_loop = true;
 </option>
             <?php } ?>
         </select><br>
-    <?php }?>
 
-    <?php if ($_smarty_tpl->tpl_vars['e']->value['selCodEmpr']==''){?>
+    <?php }else{ ?>
         Cliente solicitante: <select name="selCodCliente" disabled="disabled">
             <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['clientelist']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

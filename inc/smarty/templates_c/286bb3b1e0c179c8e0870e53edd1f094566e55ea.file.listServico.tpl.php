@@ -1,33 +1,31 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 14:28:44
+<?php /* Smarty version Smarty-3.1.13, created on 2013-07-03 21:23:48
          compiled from "view/listServico.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:196182528451d45c515bf300-72185473%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:112589302051d4be60dc7d30-48481868%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '286bb3b1e0c179c8e0870e53edd1f094566e55ea' => 
     array (
       0 => 'view/listServico.tpl',
-      1 => 1372872523,
+      1 => 1372897380,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '196182528451d45c515bf300-72185473',
+  'nocache_hash' => '112589302051d4be60dc7d30-48481868',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_51d45c5165b5c4_24763978',
+  'unifunc' => 'content_51d4be60e54097_76796860',
   'variables' => 
   array (
-    'list' => 0,
-    'r' => 0,
     'listaE' => 0,
     'row' => 0,
     'listaC' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_51d45c5165b5c4_24763978')) {function content_51d45c5165b5c4_24763978($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("view/inicio.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php if ($_valid && !is_callable('content_51d4be60e54097_76796860')) {function content_51d4be60e54097_76796860($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("view/inicio.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
 <h1>Serviços</h1>
@@ -51,71 +49,61 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <td>Concluido</td>
         <td>Ações</td>        
     </tr>
-
-    <?php  $_smarty_tpl->tpl_vars['r'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['r']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['list']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['r']->key => $_smarty_tpl->tpl_vars['r']->value){
-$_smarty_tpl->tpl_vars['r']->_loop = true;
-?>
-        <?php if ($_smarty_tpl->tpl_vars['r']->value['id_cliente']==''){?>
-            <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
+    
+    <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['listaE']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value){
 $_smarty_tpl->tpl_vars['row']->_loop = true;
 ?>
-                <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
+        <tr>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
  </td> 
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_funcionario'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_funcionario'];?>
  </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_empresa'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_empresa'];?>
  | <?php echo $_smarty_tpl->tpl_vars['row']->value['nome_func_empr'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['serv_solicitado'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['serv_solicitado'];?>
  </td> 
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_solicitacao'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_solicitacao'];?>
  </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_realizacao'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_realizacao'];?>
  </td>
-                    <td align="center"><input type="checkbox" value=""/></td>
-                    <td><a href="#" onclick="win('editServico.php?edit=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
+            <td align="center"><input type="checkbox" value=""/></td>
+            <td><a href="#" onclick="win('editServico.php?edit=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
 ',450,590)">Detalhes</a> | 
-                        <a href="?del=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
+                <a href="?del=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
 ">del</a> 
-                        <input type="button" value="Iniciar Serviço" onclick="win();"/> 
-                    </td>
-                </tr>
-            <?php } ?>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['r']->value['id_empresa']==''){?>
-            <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
+                <input type="button" value="Iniciar Serviço" onclick="win();"/> 
+            </td>
+        </tr>
+    <?php } ?>
+    <?php  $_smarty_tpl->tpl_vars['row'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['row']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['listaC']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->key => $_smarty_tpl->tpl_vars['row']->value){
 $_smarty_tpl->tpl_vars['row']->_loop = true;
 ?>
-                <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
+        <tr>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
  </td> 
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_funcionario'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_funcionario'];?>
  </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_cliente'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['nome_cliente'];?>
  </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['serv_solicitado'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['serv_solicitado'];?>
  </td> 
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_solicitacao'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_solicitacao'];?>
  </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_realizacao'];?>
+            <td><?php echo $_smarty_tpl->tpl_vars['row']->value['dt_realizacao'];?>
  </td>
-                    <td align="center"><input type="checkbox" value=""/></td>
-                    <td><a href="#" onclick="win('editServico.php?edit=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
+            <td align="center"><input type="checkbox" value=""/></td>
+            <td><a href="#" onclick="win('editServico.php?edit=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
 ',450,590)">Detalhes</a> | 
-                        <a href="?del=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
+                <a href="?del=<?php echo $_smarty_tpl->tpl_vars['row']->value['id'];?>
 ">del</a> |
-                        <input type="button" value="Iniciar Serviço" onclick="win();"/> 
-                    </td>
-                </tr>
-            <?php } ?>
-        <?php }?>
+                <input type="button" value="Iniciar Serviço" onclick="win();"/> 
+            </td>
+        </tr>
     <?php } ?>
 </table>
 

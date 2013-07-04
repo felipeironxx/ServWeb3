@@ -31,10 +31,10 @@ $cs->load();
 if (isset($_POST['selCodFuncAnot'], $_POST['selCodEmpr'], $_POST['selCodFuncEmpr'], 
           $_POST['servASerFeito'], $_POST['selCodFuncReal'], $_POST['serv_realizado'], $_POST['dataSolicitacao'], 
           $_POST['dataRealizacao'], $_POST['hr_comeco'], $_POST['hr_termino'])) {
-    if ($_POST['selCodFuncAnot']!='' and $_POST['selCodEmpr']!='' and $_POST['selCodFuncEmpr']!='' 
-        and $_POST['servASerFeito']!='' and $_POST['selCodFuncReal']!='' and $_POST['serv_realizado']!='' 
-        and $_POST['dataSolicitacao']!='' and $_POST['dataRealizacao']!='' and $_POST['hr_comeco']!=''
-        and $_POST['hr_termino']!='') {
+//    if ($_POST['selCodFuncAnot']!='' and $_POST['selCodEmpr']!='' and $_POST['selCodFuncEmpr']!='' 
+//        and $_POST['servASerFeito']!='' and $_POST['selCodFuncReal']!='' and $_POST['serv_realizado']!='' 
+//        and $_POST['dataSolicitacao']!='' and $_POST['dataRealizacao']!='' and $_POST['hr_comeco']!=''
+//        and $_POST['hr_termino']!='') {
 
         $cs->setId_func_anotou($_POST['selCodFuncAnot']);
         $cs->setId_empresa($_POST['selCodEmpr']);
@@ -49,7 +49,7 @@ if (isset($_POST['selCodFuncAnot'], $_POST['selCodEmpr'], $_POST['selCodFuncEmpr
         $cs->update();
         
         $sm->assign("done", true);
-    }//fim do preenchido ok
+//    }//fim do preenchido ok
 }//fim do esta setado os campos
 
 
