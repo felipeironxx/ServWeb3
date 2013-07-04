@@ -27,9 +27,11 @@ if($_POST['p'] == "pf"){
 
         $cs->setId_func_anotou($_POST['selCodFuncAnot']);
         $cs->setId_cliente($_POST['selCodCliente']);
+        $cs->setId_empresa(NULL);
+        $cs->setId_func_empr(NULL);
         $cs->setServ_solicitado($_POST['servASerFeito']);
         $cs->setDt_solicitacao($_POST['dataSolicitacao']);
-        $cs->insertCliente();
+        $cs->insert();
 
         $sm->assign("done", true);
     }
@@ -41,11 +43,12 @@ else {
             and isset($_POST['servASerFeito']) and isset($_POST['dataSolicitacao']) and !isset($_GET['edit'])) {
 
         $cs->setId_func_anotou($_POST['selCodFuncAnot']);
+        $cs->setId_cliente(NULL);
         $cs->setId_empresa($_POST['selCodEmpr']);
         $cs->setId_func_empr($_POST['selCodFuncEmpr']);
         $cs->setServ_solicitado($_POST['servASerFeito']);
         $cs->setDt_solicitacao($_POST['dataSolicitacao']);
-        $cs->insertEmpresa();
+        $cs->insert();
 
         $sm->assign("done", true);
     }

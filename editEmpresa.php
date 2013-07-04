@@ -10,9 +10,7 @@ $ce->load();
 
 if (isset($_POST['nEmpresa'], $_POST['cnpj'], $_POST['ie'], $_POST['nAplicativo'], $_POST['serial_ap'], $_POST['ruaE'],
    $_POST['bairroE'], $_POST['numE'], $_POST['cidadeE'], $_POST['telE'], $_POST['contador'], $_POST['tel_contador'], $_POST['emailE'])) {
-    if ($_POST['nEmpresa']!='' and  $_POST['cnpj']!='' and $_POST['ie']!='' and $_POST['nAplicativo']!='' and $_POST['serial_ap']!='' and
-        $_POST['ruaE']!='' and $_POST['bairroE']!='' and $_POST['numE']!='' and $_POST['cidadeE']!='' and $_POST['telE']!='' and 
-        $_POST['contador']!='' and $_POST['tel_contador']!='' and $_POST['emailE']!='') {
+    if ($_POST['nEmpresa']!='') {
 
         $ce->setNome($_POST['nEmpresa']);
         $ce->setCnpj($_POST['cnpj']);

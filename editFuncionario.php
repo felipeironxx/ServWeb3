@@ -9,7 +9,7 @@ $cf->setId($_GET['edit']);
 $cf->load();
 
 if (isset($_POST['nFuncionario'], $_POST['celular_func'], $_POST['emailF'])) {
-    if ($_POST['nFuncionario']!='' and $_POST['celular_func']!='' and $_POST['emailF']!='') {
+    if ($_POST['nFuncionario']!='') {
 
         $cf->setNome($_POST['nFuncionario']);
         $cf->setCelular($_POST['nCelular_func']);

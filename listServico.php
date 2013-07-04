@@ -13,7 +13,7 @@ if(isset($_GET['del'])){
 }
 
 //print_r($cs->selectInner());
-$sm->assign('lista', $cs->selectInner("order by id"));
+$sm->assign('lista', $cs->selectInner());
 
 
 $sm->display("listServico.tpl")
