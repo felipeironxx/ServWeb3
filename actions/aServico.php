@@ -9,8 +9,8 @@ class aServico extends mServico {
                                    values(%s, %s, %s, %s, '%s', '%s')";
     
     protected $sqlUpdate = "update servico set id_func_anotou= %s, id_empresa= %s, 
-                                               id_func_empr= %s, serv_solicitado= %s, 
-                                               id_func_realizou='%s', serv_realizado='%s', 
+                                               id_func_empr= %s ,id_cliente=%s , serv_solicitado= %s, 
+                                               id_func_realizou=%s, serv_realizado='%s', 
                                                dt_solicitacao='%s', dt_realizacao='%s', hr_comeco='%s',
                                                hr_termino='%s'
                             where id = '%s'";
@@ -57,7 +57,8 @@ class aServico extends mServico {
         try {
             $sql = sprintf($this->sqlUpdate, $this->getId_func_anotou(),
                                              $this->getId_empresa(), 
-                                             $this->getId_func_empr(), 
+                                             $this->getId_func_empr(),
+                                             $this->getId_cliente(),
                                              $this->getServ_solicitado(),
                                              $this->getId_func_realizou(),
                                              $this->getServ_realizado(),

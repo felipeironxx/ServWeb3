@@ -48,8 +48,9 @@ if ($v == 0) {
             $cs->setId_func_anotou($_POST['selCodFuncAnot']);
             $cs->setId_empresa($_POST['selCodEmpr']);
             $cs->setId_func_empr($_POST['selCodFuncEmpr']);
+            $cs->setId_cliente('NULL');
             $cs->setServ_solicitado($_POST['servASerFeito']);
-            $cs->setId_func_realizou($_POST['selCodFuncReal']);
+            $cs->setId_func_realizou('NULL');
             $cs->setServ_realizado($_POST['serv_realizado']);
             $cs->setDataSolic($_POST['dataSolicitacao']);
             $cs->setDataReal($_POST['dataRealizacao']);
@@ -68,9 +69,11 @@ if ($v == 0) {
             and $_POST['dataSolicitacao'] != '') {
 
         $cs->setId_func_anotou($_POST['selCodFuncAnot']);
+        $cs->setId_empresa('NULL');
+        $cs->setId_func_empr('NULL');
         $cs->setId_cliente($_POST['selCodCliente']);
         $cs->setServ_solicitado($_POST['servASerFeito']);
-        $cs->setId_func_realizou($_POST['selCodFuncReal']);
+        $cs->setId_func_realizou('NULL');
         $cs->setServ_realizado($_POST['serv_realizado']);
         $cs->setDataSolic($_POST['dataSolicitacao']);
         $cs->setDataReal($_POST['dataRealizacao']);
