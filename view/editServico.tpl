@@ -45,7 +45,7 @@
 
     Serviço Realizado: <br><textarea name="serv_realizado" id="serv_realizado" rows="5" cols="32">{$e.serv_realizado}</textarea><br>
 
-    Data e hora do termino do serviço: <input type="text" name="dt_hr_termino" id="dt_hr_termino" value="{$e.dt_hr_termino}"><br>
+    Data e hora do termino do serviço: <input type="text" name="dt_hr_realizacao" id="dt_hr_realizacao" value="{$e.dt_hr_realizacao}"><br>
 
     
     <input type="button" onclick="habilitar_edit_serv({$valor});" value="Editar"/>

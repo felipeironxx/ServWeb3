@@ -95,9 +95,9 @@ class mServico extends dbConnection {
 
     public function getDtHr_comeco($us = FALSE) {
         if ($us) {
-            return $this->dt_hr_realizacao;
+            return $this->dt_hr_comeco;
         } else {
-            return $this->dateTimeToBr($this->dt_hr_realizacao);
+            return $this->dateTimeToBr($this->dt_hr_comeco);
         }
     }
 

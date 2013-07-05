@@ -26,22 +26,23 @@ $sm->assign('funclist', $cf->select());
 $sm->assign('funcemprlist', $cfe->select());
 $sm->assign('clientelist', $c->select());
 
-$v = $_GET['valor'];
-if ($v == "") {
-    $v = 0;
-} else {
-    $v = 1;
-}
-$sm->assign("valor", $v);
-
 $cs->setId($_GET['edit']);
 $cs->load();
+
+$v = $cs->getId_cliente();
+if ($v == "") {
+    $v = 0;
+}else {
+    $v = 1;
+}
+
+$sm->assign("valor", $v);
 
 if ($v == 0) {
 
     if (isset($_POST['selCodFuncAnot'], $_POST['selCodEmpr'], $_POST['selCodFuncEmpr'], $_POST['servASerFeito'], 
-              $_POST['selCodFuncReal'], $_POST['serv_realizado'], $_POST['dataSolicitacao'], $_POST['dataRealizacao'], 
-              $_POST['hr_comeco'], $_POST['hr_termino'])) {
+              $_POST['selCodFuncReal'], $_POST['serv_realizado'], $_POST['dataSolicitacao'], $_POST['dt_hr_comeco'],
+              $_POST['dt_hr_realizacao'])){
         if ($_POST['selCodFuncAnot'] != '' and $_POST['selCodEmpr'] != '' and $_POST['selCodFuncEmpr'] != ''
                 and $_POST['servASerFeito'] != '' and $_POST['dataSolicitacao'] != '') {
 
@@ -52,10 +53,9 @@ if ($v == 0) {
             $cs->setServ_solicitado($_POST['servASerFeito']);
             $cs->setId_func_realizou('NULL');
             $cs->setServ_realizado($_POST['serv_realizado']);
-            $cs->setDataSolic($_POST['dataSolicitacao']);
-            $cs->setDataReal($_POST['dataRealizacao']);
-            $cs->setHr_comeco($_POST['hr_comeco']);
-            $cs->setHr_termino($_POST['hr_termino']);
+            $cs->setDt_solicitacao($_POST['dataSolicitacao']);
+            $cs->setDtHr_comeco($_POST['dt_hr_comeco']);
+            $cs->setDtHr_realizacao($_POST['dt_hr_realizacao']);
             $cs->update();
 
             $sm->assign("done", true);
@@ -63,8 +63,7 @@ if ($v == 0) {
     }//fim do esta setado os campos
 } else if ($v == 1) {
     if (isset($_POST['selCodFuncAnot'], $_POST['selCodCliente'], $_POST['servASerFeito'], $_POST['selCodFuncReal'], 
-              $_POST['serv_realizado'], $_POST['dataSolicitacao'], $_POST['dataRealizacao'], $_POST['hr_comeco'], 
-              $_POST['hr_termino'])) {
+              $_POST['serv_realizado'], $_POST['dataSolicitacao'], $_POST['dt_hr_comeco'], $_POST['dt_hr_realizacao'])) {
         if ($_POST['selCodFuncAnot'] != '' and $_POST['selCodCliente'] != '' and $_POST['servASerFeito'] != '' 
             and $_POST['dataSolicitacao'] != '') {
 
@@ -75,10 +74,9 @@ if ($v == 0) {
         $cs->setServ_solicitado($_POST['servASerFeito']);
         $cs->setId_func_realizou('NULL');
         $cs->setServ_realizado($_POST['serv_realizado']);
-        $cs->setDataSolic($_POST['dataSolicitacao']);
-        $cs->setDataReal($_POST['dataRealizacao']);
-        $cs->setHr_comeco($_POST['hr_comeco']);
-        $cs->setHr_termino($_POST['hr_termino']);
+        $cs->setDt_solicitacao($_POST['dataSolicitacao']);
+        $cs->setHr_comeco($_POST['dt_hr_comeco']);
+        $cs->setDtHr_realizacao($_POST['dt_hr_realizacao']);
         $cs->update();
 
         $sm->assign("done", true);
@@ -89,16 +87,15 @@ if ($v == 0) {
 
 
 $dados = array('selCodFuncAnot' => $cs->getId_func_anotou(),
-    'selCodCliente' => $cs->getId_cliente(),
     'selCodEmpr' => $cs->getId_empresa(),
     'selCodFuncEmpr' => $cs->getId_func_empr(),
+    'selCodCliente' => $cs->getId_cliente(),
     'servASerFeito' => $cs->getServ_solicitado(),
     'dataSolicitacao' => $cs->getDt_solicitacao(),
     'selCodFuncReal' => $cs->getId_func_realizou(),
     'serv_realizado' => $cs->getServ_realizado(),
-    'dataRealizacao' => $cs->getDt_realizacao(),
-    'hr_comeco' => $cs->getHr_comeco(),
-    'hr_termino' => $cs->getHr_termino());
+    'dt_hr_comeco' => $cs->getDtHr_comeco(),
+    'dt_hr_realizacao' => $cs->getDtHr_realizacao());
 
 $sm->assign('e', $dados);
 
