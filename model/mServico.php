@@ -51,11 +51,11 @@ class mServico extends dbConnection {
     }
 
     public function getId_cliente() {
-        return $this->cliente;
+        return $this->id_cliente;
     }
 
-    public function setId_cliente($cliente) {
-        $this->cliente = $cliente;
+    public function setId_cliente($id_cliente) {
+        $this->id_cliente = $id_cliente;
     }
 
     public function getServ_solicitado() {
