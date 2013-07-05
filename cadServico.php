@@ -1,5 +1,4 @@
 <?php
-
 require_once 'sm.php';
 require_once 'pagina_restrita.php';
 require_once 'core/Cliente.php';

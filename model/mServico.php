@@ -13,9 +13,8 @@ class mServico extends dbConnection {
     private $id_func_realizou;
     private $serv_realizado;
     private $dt_solicitacao;
-    private $dt_realizacao;
-    private $hr_comeco;
-    private $hr_termino;
+    private $dt_hr_comeco;
+    private $dt_hr_realizacao;
     private $conluido;
 
     public function getId() {
@@ -81,8 +80,8 @@ class mServico extends dbConnection {
     public function setServ_realizado($serv_realizado) {
         $this->serv_realizado = $serv_realizado;
     }
-    
-        public function getDt_solicitacao($us = FALSE) {
+
+    public function getDt_solicitacao($us = FALSE) {
         if ($us) {
             return $this->dt_solicitacao;
         } else {
@@ -94,32 +93,24 @@ class mServico extends dbConnection {
         $this->dt_solicitacao = $this->dateToUS($dataBR);
     }
 
-    public function getDt_realizacao($us = FALSE) {
+    public function getDtHr_comeco() {
+        return $this->dt_hr_comeco;
+    }
+
+    public function setDtHr_comeco($dataBR_His) {
+        $this->dt_hr_comeco = $this->dateTimeToUS($dataBR_His);
+    }
+
+    public function getDtHr_realizacao($us = FALSE) {
         if ($us) {
-            return $this->dt_realizacao;
+            return $this->dt_hr_realizacao;
         } else {
-            return $this->dateToBr($this->dt_realizacao);
+            return $this->dateToBr($this->dt_hr_realizacao);
         }
     }
 
-    public function setDt_realizacao($dataBR) {
-        $this->dt_realizacao = $this->dateToUS($dataBR);
-    }
-
-    public function getHr_comeco() {
-        return $this->hr_comeco;
-    }
-
-    public function setHr_comeco($hr_comeco) {
-        $this->hr_comeco = $hr_comeco;
-    }
-
-    public function getHr_termino() {
-        return $this->hr_termino;
-    }
-
-    public function setHr_termino($hr_termino) {
-        $this->hr_termino = $hr_termino;
+    public function setDtHr_realizacao($dataBR_His) {
+        $this->dt_hr_realizacao = $this->dateTimeToUS($dataBR_His);
     }
 
     public function getConluido() {

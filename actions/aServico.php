@@ -11,18 +11,19 @@ class aServico extends mServico {
     protected $sqlUpdate = "update servico set id_func_anotou= %s, id_empresa= %s, 
                                                id_func_empr= %s ,id_cliente=%s , serv_solicitado= %s, 
                                                id_func_realizou=%s, serv_realizado='%s', 
-                                               dt_solicitacao='%s', dt_realizacao='%s', hr_comeco='%s',
-                                               hr_termino='%s'
+                                               dt_solicitacao='%s', dt_hr_comeco='%s', dt_hr_realizacao='%s'
                             where id = '%s'";
     
     protected $sqlDelete = "delete from servico where id = '%s'";
     
     protected $sqlSelect = "select *, date_format(dt_solicitacao, '%s') as dt_solicitacao,
-                                      date_format(dt_realizacao, '%s') as dt_realizacao
+                                      datetime_format(dt_hr_comeco, '%s') as dt_hr_comeco,
+                                      datetime_format(dt_hr_realizacao, '%s') as dt_hr_realizacao
                                       from servico where 1=1 %s %s";
     
     protected $sqlSelectInner = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
-                                        date_format(dt_realizacao, '%s') as dt_realizacao, 
+                                        datetime_format(dt_hr_comeco, '%s') as dt_hr_comeco,
+                                        datetime_format(dt_hr_realizacao, '%s') as dt_hr_realizacao, 
                                         funcionario.nome_funcionario, empresa.nome_empresa, 
                                         func_empr.nome_func_empr, servico.id_cliente as nome_cliente from servico 
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
@@ -31,7 +32,8 @@ class aServico extends mServico {
                                  where 1=1 
                                  union all 
                                  select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
-                                        date_format(dt_realizacao, '%s') as dt_realizacao, 
+                                        datetime_format(dt_hr_comeco, '%s') as dt_hr_comeco,
+                                        datetime_format(dt_hr_realizacao, '%s') as dt_hr_realizacao, 
                                         funcionario.nome_funcionario, servico.id_empresa, servico.id_func_empr, cliente.nome_cliente 
                                         from servico 
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
@@ -62,10 +64,9 @@ class aServico extends mServico {
                                              $this->getServ_solicitado(),
                                              $this->getId_func_realizou(),
                                              $this->getServ_realizado(),
-                                             $this->getDt_solicitacao(true), 
-                                             $this->getDt_realizacao(true),
-                                             $this->getHr_comeco(),
-                                             $this->getHr_termino(), 
+                                             $this->getDt_solicitacao(true),
+                                             $this->getDtHr_comeco(true),
+                                             $this->getDtHr_realizacao(true), 
                                              $this->getId());
             return $this->RunQuery($sql);
         } catch (Exception $e) {
@@ -119,9 +120,8 @@ class aServico extends mServico {
             $this->setId_func_realizou($rs[0]['id_func_realizou']);
             $this->setServ_realizado($rs[0]['serv_realizado']);
             $this->setDt_solicitacao($rs[0]['dt_solicitacao']);
-            $this->setDt_realizacao($rs[0]['dt_realizacao']);
-            $this->setHr_comeco($rs[0]['hr_comeco']);
-            $this->setHr_termino($rs[0]['hr_termino']);
+            $this->setDtHr_comeco($rs[0]['dt_hr_comeco']);
+            $this->setDtHr_realizacao($rs[0]['dt_hr_realizacao']);
             $this->setConluido($rs[0]['concluido']);
 
             return $this;
