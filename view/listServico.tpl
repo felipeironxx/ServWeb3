@@ -37,7 +37,7 @@
             <td align="center"><input type="checkbox" value=""/></td>
             <td><a href="#" onclick="win('editServico.php?edit={$row.id}',450,590)">Detalhes</a> | 
                 <a href="?del={$row.id}">del</a> 
-                <input type="button" value="Iniciar Serviço" onclick="win('iniciar_servico.php?iniciar={$row.id}',200,100)"/> 
+                <input type="button" value="Iniciar Serviço" onclick="win('iniciar_servico.php?iniciar={$row.id}',400,135)"/> 
             </td>
         </tr>
     {/foreach}

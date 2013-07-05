@@ -51,7 +51,7 @@ if ($v == 0) {
             $cs->setId_func_empr($_POST['selCodFuncEmpr']);
             $cs->setId_cliente('NULL');
             $cs->setServ_solicitado($_POST['servASerFeito']);
-            $cs->setId_func_realizou('NULL');
+            $cs->setId_func_realizou($_POST['selCodFuncReal']);
             $cs->setServ_realizado($_POST['serv_realizado']);
             $cs->setDt_solicitacao($_POST['dataSolicitacao']);
             $cs->setDtHr_comeco($_POST['dt_hr_comeco']);
@@ -72,7 +72,7 @@ if ($v == 0) {
         $cs->setId_func_empr('NULL');
         $cs->setId_cliente($_POST['selCodCliente']);
         $cs->setServ_solicitado($_POST['servASerFeito']);
-        $cs->setId_func_realizou('NULL');
+        $cs->setId_func_realizou($_POST['selCodFuncReal']);
         $cs->setServ_realizado($_POST['serv_realizado']);
         $cs->setDt_solicitacao($_POST['dataSolicitacao']);
         $cs->setHr_comeco($_POST['dt_hr_comeco']);

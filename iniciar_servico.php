@@ -1,26 +1,21 @@
 <?php
-
 require_once 'sm.php';
 require_once 'pagina_restrita.php';
 require_once 'core/Servico.php';
+require_once 'core/Funcionario.php';
 
 $cs = new Servico();
+$cf = new Funcionario();
 
-
-//$v = $_GET['valor'];
-//if ($v == "") {
-//    $v = 0;
-//} else {
-//    $v = 1;
-//}
-//$sm->assign("valor", $v);
+$sm->assign('funclist', $cf->select());
 
 $cs->setId($_GET['iniciar']);
+$cf->load();
 
-if (isset($_POST['func_realizou'], $_POST['dt_hr_comeco'])) {
-    if ($_POST['func_realizou'] != '' and $_POST['dt_hr_comeco'] != '') {
+if (isset($_POST['selCodFuncReal'], $_POST['dt_hr_comeco'])) {
+    if ($_POST['selCodFuncReal'] != '' and $_POST['dt_hr_comeco'] != '') {
 
-        $cs->setId_func_realizou('func_realizou');
+        $cs->setId_func_realizou($_POST['selCodFuncReal']);
         $cs->setDtHr_comeco($_POST['dt_hr_comeco']);
         $cs->update();
 
