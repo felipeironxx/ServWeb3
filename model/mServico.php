@@ -93,8 +93,12 @@ class mServico extends dbConnection {
         $this->dt_solicitacao = $this->dateToUS($dataBR);
     }
 
-    public function getDtHr_comeco() {
-        return $this->dt_hr_comeco;
+    public function getDtHr_comeco($us = FALSE) {
+        if ($us) {
+            return $this->dt_hr_realizacao;
+        } else {
+            return $this->dateTimeToBr($this->dt_hr_realizacao);
+        }
     }
 
     public function setDtHr_comeco($dataBR_His) {
@@ -105,7 +109,7 @@ class mServico extends dbConnection {
         if ($us) {
             return $this->dt_hr_realizacao;
         } else {
-            return $this->dateToBr($this->dt_hr_realizacao);
+            return $this->dateTimeToBr($this->dt_hr_realizacao);
         }
     }
 
@@ -120,7 +124,6 @@ class mServico extends dbConnection {
     public function setConluido($conluido) {
         $this->conluido = $conluido;
     }
-
 }
 
 ?>

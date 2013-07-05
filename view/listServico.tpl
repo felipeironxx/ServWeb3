@@ -17,7 +17,7 @@
         <td>Solicitante</td>
         <td>Servico a ser realizado</td> 
         <td>Data da solictaçao</td>
-        <td>Data da realização</td>
+        <td>Data e hora da realização</td>
         <td>Concluido</td>
         <td>Ações</td>        
     </tr>
@@ -33,7 +33,7 @@
             {/if}
             <td>{$row.serv_solicitado} </td> 
             <td>{$row.dt_solicitacao} </td>
-            <td>{$row.dt_realizacao} </td>
+            <td>{$row.dt_hr_realizacao} </td>
             <td align="center"><input type="checkbox" value=""/></td>
             <td><a href="#" onclick="win('editServico.php?edit={$row.id}&valor={$row.nome_cliente}',450,590)">Detalhes</a> | 
                 <a href="?del={$row.id}">del</a> 

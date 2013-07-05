@@ -12,7 +12,6 @@ if(isset($_GET['del'])){
     $cs->delete();
 }
 
-//print_r($cs->selectInner());
 $sm->assign('lista', $cs->selectInner());
 
 

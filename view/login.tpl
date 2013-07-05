@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="view/css/inicio.css" media="screen"/>
     </head>
-    <body>
+    <body onload="document.login.login.focus()">
         <div id="corpo" align="center">
             <h1>Login</h1>
             <form name="login" method="post">

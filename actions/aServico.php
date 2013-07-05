@@ -17,13 +17,13 @@ class aServico extends mServico {
     protected $sqlDelete = "delete from servico where id = '%s'";
     
     protected $sqlSelect = "select *, date_format(dt_solicitacao, '%s') as dt_solicitacao,
-                                      datetime_format(dt_hr_comeco, '%s') as dt_hr_comeco,
-                                      datetime_format(dt_hr_realizacao, '%s') as dt_hr_realizacao
+                                      date_format(dt_hr_comeco, '%s') as dt_hr_comeco,
+                                      date_format(dt_hr_realizacao, '%s') as dt_hr_realizacao
                                       from servico where 1=1 %s %s";
     
     protected $sqlSelectInner = "select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
-                                        datetime_format(dt_hr_comeco, '%s') as dt_hr_comeco,
-                                        datetime_format(dt_hr_realizacao, '%s') as dt_hr_realizacao, 
+                                        date_format(dt_hr_comeco, '%s') as dt_hr_comeco,
+                                        date_format(dt_hr_realizacao, '%s') as dt_hr_realizacao, 
                                         funcionario.nome_funcionario, empresa.nome_empresa, 
                                         func_empr.nome_func_empr, servico.id_cliente as nome_cliente from servico 
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
@@ -32,8 +32,8 @@ class aServico extends mServico {
                                  where 1=1 
                                  union all 
                                  select servico.*, date_format(dt_solicitacao, '%s') as dt_solicitacao,
-                                        datetime_format(dt_hr_comeco, '%s') as dt_hr_comeco,
-                                        datetime_format(dt_hr_realizacao, '%s') as dt_hr_realizacao, 
+                                        date_format(dt_hr_comeco, '%s') as dt_hr_comeco,
+                                        date_format(dt_hr_realizacao, '%s') as dt_hr_realizacao, 
                                         funcionario.nome_funcionario, servico.id_empresa, servico.id_func_empr, cliente.nome_cliente 
                                         from servico 
                                         inner join funcionario on (funcionario.id = servico.id_func_anotou)
@@ -85,7 +85,7 @@ class aServico extends mServico {
 
     public function select($where = '', $order = '', $rquery = false) {
         try {
-            $sql = sprintf($this->sqlSelect,  '%d/%m/%Y', '%d/%m/%Y', $where, $order);
+            $sql = sprintf($this->sqlSelect, '%d/%m/%Y', '%d/%m/%Y %H:%i:%s', '%d/%m/%Y %H:%i:%s', $where, $order);
             if ($rquery)
                 return $sql;
             else
@@ -97,7 +97,8 @@ class aServico extends mServico {
 
     public function selectInner($where = '', $order = '', $rquery = false) {
         try {
-            $sql = sprintf($this->sqlSelectInner, '%d/%m/%Y', '%d/%m/%Y', '%d/%m/%Y', '%d/%m/%Y');
+            $sql = sprintf($this->sqlSelectInner, '%d/%m/%Y', '%d/%m/%Y %H:%i:%s', '%d/%m/%Y %H:%i:%s', 
+                                                  '%d/%m/%Y', '%d/%m/%Y %H:%i:%s', '%d/%m/%Y %H:%i:%s');
             if ($rquery)
                 return $sql;
             else
