@@ -41,13 +41,11 @@
         {/foreach}
     </select><br>
 
-    Hora do inicio do serviço: <input type="tect" name="hr_comeco" id="hr_comeco" value="{$e.hr_comeco}"><br>
+    Data e hora do inicio do serviço: <input type="text" name="dt_hr_comeco" id="dt_hr_comeco" value="{$e.dt_hr_comeco}"><br>
 
     Serviço Realizado: <br><textarea name="serv_realizado" id="serv_realizado" rows="5" cols="32">{$e.serv_realizado}</textarea><br>
 
-    Hora do termino do serviço: <input type="text" name="hr_termino" id="hr_termino" value="{$e.hr_termino}"><br>
-
-    Data da realização do serviço: <input type="text" name="dataRealizacao" id="dataRealizacao" value="{$e.dataRealizacao}"><br>
+    Data e hora do termino do serviço: <input type="text" name="dt_hr_termino" id="dt_hr_termino" value="{$e.dt_hr_termino}"><br>
 
     
     <input type="button" onclick="habilitar_edit_serv({$valor});" value="Editar"/>

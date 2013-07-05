@@ -15,7 +15,7 @@
             {/foreach}
         </select><br>
 
-        <div id="fis" style="display: none;">
+        <div id="fis" style="display: block;">
 
             Cliente que solicitou o serviço: <select name="selCodCliente">
                 <option value="0">Escolha uma opção</option>
