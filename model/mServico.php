@@ -121,7 +121,7 @@ class mServico extends dbConnection {
         return $this->conluido;
     }
 
-    public function setConluido($conluido) {
+    public function setConluido($conluido = 'N') {
         $this->conluido = $conluido;
     }
 }

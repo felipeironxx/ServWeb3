@@ -34,7 +34,7 @@
             <td>{$row.serv_solicitado} </td> 
             <td>{$row.dt_solicitacao} </td>
             <td>{$row.dt_hr_realizacao} </td>
-            <td align="center"><input type="checkbox" value=""/></td>
+            <td align="center"><input type="checkbox" {if $row.concluido == 'S'} checked="checked" {/if} onclick="win('concluir_servico.php?concluir={$row.id}',500,200)" value=""/></td>
             <td><a href="#" onclick="win('editServico.php?edit={$row.id}',450,590)">Detalhes</a> | 
                 <a href="?del={$row.id}">del</a> 
                 <input type="button" value="Iniciar Serviço" onclick="win('iniciar_servico.php?iniciar={$row.id}',400,135)"/> 

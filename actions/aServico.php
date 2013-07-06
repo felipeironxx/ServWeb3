@@ -11,7 +11,7 @@ class aServico extends mServico {
     protected $sqlUpdate = "update servico set id_func_anotou= %s, id_empresa= %s, 
                                                id_func_empr= %s ,id_cliente=%s , serv_solicitado= '%s', 
                                                id_func_realizou=%s, serv_realizado='%s', 
-                                               dt_solicitacao='%s', dt_hr_comeco='%s', dt_hr_realizacao='%s'
+                                               dt_solicitacao='%s', dt_hr_comeco='%s', dt_hr_realizacao='%s', concluido='%s'
                             where id = '%s'";
     
     protected $sqlDelete = "delete from servico where id = '%s'";
@@ -66,7 +66,8 @@ class aServico extends mServico {
                                              $this->getServ_realizado(),
                                              $this->getDt_solicitacao(true),
                                              $this->getDtHr_comeco(true),
-                                             $this->getDtHr_realizacao(true), 
+                                             $this->getDtHr_realizacao(true),
+                                             $this->getConluido(),
                                              $this->getId());
             return $this->RunQuery($sql);
         } catch (Exception $e) {
