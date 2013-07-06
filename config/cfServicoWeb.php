@@ -16,13 +16,13 @@ class cfServicoWeb {
     
     public function dateTimeToBR($data_americana_his){
          $d = explode(' ', $data_americana_his);
-         $ok = $this->dateToBr($d[0].' '.$d[1]);
+         $ok = $this->dateToBr($d[0]).' '.$d[1];
          return $ok;
     }
     
     public function dateTimeToUS($data_br_his){
          $d = explode(' ', $data_br_his);
-         $ok = $this->dateToUS($d[0].' '.$d[1]);
+         $ok = $this->dateToUS($d[0]).' '.$d[1];
          return $ok;
     }
 
