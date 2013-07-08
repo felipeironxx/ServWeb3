@@ -14,12 +14,12 @@ $cf = new Funcionario();
 $cfe = new FuncEmpr();
 $c = new Cliente();
 
-//if(isset($_GET['del'])){
-//    $cs->setId($_GET['del']);
-//    $cs->delete();
-//    
-//    $sm->assign("done", true);
-//}
+if(isset($_GET['del'])){
+    $cs->setId($_GET['del']);
+    $cs->delete();
+    
+    $sm->assign("done", true);
+}
 
 $sm->assign('emplist', $ce->select());
 $sm->assign('funclist', $cf->select());
@@ -86,7 +86,8 @@ if ($v == 0) {
 
 
 
-$dados = array('selCodFuncAnot' => $cs->getId_func_anotou(),
+$dados = array('id' => $cs->getId(),
+    'selCodFuncAnot' => $cs->getId_func_anotou(),
     'selCodEmpr' => $cs->getId_empresa(),
     'selCodFuncEmpr' => $cs->getId_func_empr(),
     'selCodCliente' => $cs->getId_cliente(),

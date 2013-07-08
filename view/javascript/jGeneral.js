@@ -53,29 +53,27 @@ function deal(obj){
 
 function habilitar_edit_serv(valor){
     
-    if(valor == 1){
+    if(valor == 0){
         
         document.editServico.selCodFuncAnot.disabled = false;
         document.editServico.selCodEmpr.disabled = false;
         document.editServico.selCodFuncEmpr.disabled = false;
         document.editServico.servASerFeito.disabled = false;
         document.editServico.dataSolicitacao.disabled = false;
-        document.editServico.dataRealizacao.disabled = false;
         document.editServico.selCodFuncReal.disabled = false;
         document.editServico.serv_realizado.disabled = false;
-        document.editServico.hr_comeco.disabled = false;
-        document.editServico.hr_termino.disabled = false;
+        document.editServico.dt_hr_comeco.disabled = false;
+        document.editServico.dt_hr_realizacao.disabled = false;
        
-    }else if(valor == 0){
+    }else if(valor == 1){
         
         document.editServico.selCodFuncAnot.disabled = false;
         document.editServico.selCodCliente.disabled = false;
         document.editServico.servASerFeito.disabled = false;
         document.editServico.dataSolicitacao.disabled = false;
-        document.editServico.dataRealizacao.disabled = false;
         document.editServico.selCodFuncReal.disabled = false;
         document.editServico.serv_realizado.disabled = false;
-        document.editServico.hr_comeco.disabled = false;
-        document.editServico.hr_termino.disabled = false;
+        document.editServico.dt_hr_comeco.disabled = false;
+        document.editServico.dt_hr_realizacao.disabled = false;
     }
 }

@@ -3,7 +3,7 @@ require_once ('model/mCliente.php');
 
 class aCliente extends mCliente {
 
-    protected $sqlInsert = "insert into cliente (nome, cpf, rg, rua, bairro, numero, cidade) 
+    protected $sqlInsert = "insert into cliente (nome, cpf, rg, rua, bairro, numero, cidade, telefone) 
                                                 values('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
     
     protected $sqlUpdate = "update cliente set nome='%s', cpf='%s', rg='%s', rua='%s', bairro='%s', numero='%s', cidade='%s' 

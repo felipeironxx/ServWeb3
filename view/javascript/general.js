@@ -13,3 +13,11 @@ function win(enderecoURL,w,h){
     });
 }
 
+function alerts(obj1, obj2){
+    if(obj1 == 1){
+        alert("Antes de concluir deve iniciar o serviço!!!!");
+        window.location.reload();
+    }else if(obj2 == 'N'){
+        alert("Serviço ainda em andamento");
+    }
+}
