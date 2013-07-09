@@ -5,8 +5,15 @@ require_once 'core/Cliente.php';
 
 $sm->assign('usuario', $_SESSION['usuario_0'][nome]);
 
-$cc = new Cliente();
-$sm->assign('lista', $cc->select());
+$c = new Cliente();
+
+if(isset($_GET['del'])){
+    $c->setId($_GET['del']);
+    $c->delete();
+}
+
+
+$sm->assign('lista', $c->select());
 
 
 $sm->display("listCliente.tpl")

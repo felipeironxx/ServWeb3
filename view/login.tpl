@@ -11,7 +11,7 @@
             <form name="login" method="post">
                 <table width="400" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td><p class="text-error">{$erro}</p></td>
+                        <td><p>{$erro}</p></td>
                     </tr>
                     <tr> 
                         <td>Login:</td>

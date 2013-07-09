@@ -12,6 +12,7 @@ class mCliente extends dbConnection {
     private $numero;
     private $bairro;
     private $cidade;
+    private $telefone;
 
     public function getId() {
         return $this->id;
@@ -75,6 +76,14 @@ class mCliente extends dbConnection {
 
     public function setCidade($cidade) {
         $this->cidade = $cidade;
+    }
+
+    public function getTelefone() {
+        return $this->telefone;
+    }
+
+    public function setTelefone($telefone) {
+        $this->telefone = $telefone;
     }
 
 }
