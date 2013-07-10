@@ -31,16 +31,18 @@
                 <td>{$row.serv_solicitado} </td> 
                 <td>{$row.dt_solicitacao} </td>
                 <td align="center"><input type="checkbox" name="conc" {if $row.concluido == 'S'} checked="checked" {/if}
-                                          {if $row.id_func_realizou == ''} onclick="alertas('{$row.nome_funcionario}', '{$row.concluido}')" {else}
-                                          onclick="win('concluir_servico.php?concluir={$row.id}',500,200);" {/if} value=""/></td>
+                    {if $row.id_func_realizou == ''} onclick="alertas('{$row.nome_funcionario}', '{$row.concluido}')" {else}
+                        onclick="win('concluir_servico.php?concluir={$row.id}',500,200);" {/if} value=""/></td>
+
                 <td><a href="#" {if $row.concluido == 'N'} onclick="alertas('{$row.id_func_realizou}', '{$row.concluido}')" {else} 
-                                 onclick="win('editServico.php?edit={$row.id}',450,590)" {/if}>Detalhes</a>
+                       onclick="win('editServico.php?edit={$row.id}',450,590)" {/if}>Detalhes</a>
+
                     <input type="button" value="Iniciar Serviço" {if $row.id_func_realizou != ''} onclick="alertas('{$row.id_func_realizou}', '{$row.concluido}')" {else} 
                            onclick="win('iniciar_servico.php?iniciar={$row.id}',400,135)" {/if}/> 
                 </td>
             </tr>
-        {/foreach}
-    </table>
-</form>
+            {/foreach}
+            </table>
+        </form>
 
-{include file="view/fim.tpl"}
+        {include file="view/fim.tpl"}
