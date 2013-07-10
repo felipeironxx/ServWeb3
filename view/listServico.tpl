@@ -30,10 +30,13 @@
                 {/if}
                 <td>{$row.serv_solicitado} </td> 
                 <td>{$row.dt_solicitacao} </td>
-                <td align="center"><input type="checkbox" name="conc" {if $row.concluido == 'S'} checked="checked" {/if} 
-                                          onclick="win('concluir_servico.php?concluir={$row.id}',500,200);" value=""/></td>
-                <td><a href="#" onclick="win('editServico.php?edit={$row.id}',450,590)">Detalhes</a>
-                    <input type="button" value="Iniciar Serviço" onclick="win('iniciar_servico.php?iniciar={$row.id}',400,135)"/> 
+                <td align="center"><input type="checkbox" name="conc" {if $row.concluido == 'S'} checked="checked" {/if}
+                                          {if $row.id_func_realizou == ''} onclick="alertas('{$row.nome_funcionario}', '{$row.concluido}')" {else}
+                                          onclick="win('concluir_servico.php?concluir={$row.id}',500,200);" {/if} value=""/></td>
+                <td><a href="#" {if $row.concluido == 'N'} onclick="alertas('{$row.id_func_realizou}', '{$row.concluido}')" {else} 
+                                 onclick="win('editServico.php?edit={$row.id}',450,590)" {/if}>Detalhes</a>
+                    <input type="button" value="Iniciar Serviço" {if $row.id_func_realizou != ''} onclick="alertas('{$row.id_func_realizou}', '{$row.concluido}')" {else} 
+                           onclick="win('iniciar_servico.php?iniciar={$row.id}',400,135)" {/if}/> 
                 </td>
             </tr>
         {/foreach}

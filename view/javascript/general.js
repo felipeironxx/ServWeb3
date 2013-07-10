@@ -13,11 +13,23 @@ function win(enderecoURL,w,h){
     });
 }
 
-function alerts(obj1, obj2){
-    if(obj1 == 1){
-        alert("Antes de concluir deve iniciar o serviço!!!!");
+function alertas(obj1, obj2){
+
+    if(obj1 == ""){
+        obj1 = 1;
+    }
+    
+    if(obj2 == "N"){
+        obj2 = 2;
+    } 
+ 
+    if(obj1 == 1 && obj2 == 2){
+        alert("Serviço não iniciado");   
         window.location.reload();
-    }else if(obj2 == 'N'){
-        alert("Serviço ainda em andamento");
+    }else if(obj2 == 2){
+        alert("Serviço ainda em andamento.");
+    }
+    else if(obj1 != 1 && obj2 != 2){
+        alert("Serviço já concluido");    
     }
 }
